@@ -1,0 +1,80 @@
+import org.luaj.vm2.*;
+import org.luaj.vm2.lib.*;
+public class _oslib extends VarArgFunction {
+   public Varargs onInvoke(Varargs $arg) {
+      final LuaValue pcall$1 = new VarArgFunction(env) {
+         public Varargs invoke(Varargs $arg) {
+            final LuaValue arg = NIL;
+            final Varargs t = env.get(pcall).invoke($arg);
+            final LuaValue s = t.arg1();
+            final LuaValue e = t.arg(2);
+            final LuaValue f = t.arg(3);
+            return varargsOf(s,env.get(type$1).invoke(e));
+         }
+      };
+      env.get(print).invoke(varargsOf(os,env.get(type$1).invoke(env.get(os))));
+      env.get(print).invoke(varargsOf(os_clock,pcall$1.invoke(env.get(os).get(clock))));
+      env.get(print).invoke(varargsOf(os_date_,pcall$1.invoke(env.get(os).get(date))));
+      env.get(print).invoke(varargsOf(os_difft,pcall$1.invoke(varargsOf(env.get(os).get(difftime),_123000,_21250))));
+      env.get(print).invoke(varargsOf(os_execu,pcall$1.invoke(varargsOf(env.get(os).get(execute),_))));
+      env.get(print).invoke(varargsOf(os_geten,pcall$1.invoke(env.get(os).get(getenv))));
+      env.get(print).invoke(varargsOf(os_geten$1,pcall$1.invoke(varargsOf(env.get(os).get(getenv),bogus_ke))));
+      final Varargs t = pcall$1.invoke(env.get(os).get(tmpname));
+      final LuaValue s = t.arg1();
+      final LuaValue p = t.arg(2);
+      final Varargs t$1 = pcall$1.invoke(env.get(os).get(tmpname));
+      final LuaValue s$1 = t$1.arg1();
+      final LuaValue q = t$1.arg(2);
+      env.get(print).call(os_tmpna,s$1,p);
+      env.get(print).call(os_tmpna,s$1,q);
+      final Varargs t$2 = pcall$1.invoke(varargsOf(env.get(io).get(open),p,w));
+      final LuaValue s$2 = t$2.arg1();
+      final LuaValue f = t$2.arg(2);
+      env.get(print).call(io_open,s$2,f);
+      env.get(print).invoke(varargsOf(write,pcall$1.invoke(varargsOf(f.get(write),f,abcdef_1))));
+      env.get(print).invoke(varargsOf(close,pcall$1.invoke(varargsOf(f.get(close),f))));
+      env.get(print).invoke(varargsOf(os_renam,pcall$1.invoke(varargsOf(env.get(os).get(rename),p,q))));
+      env.get(print).invoke(varargsOf(os_remov,pcall$1.invoke(varargsOf(env.get(os).get(remove),q))));
+      env.get(print).invoke(varargsOf(os_remov,pcall$1.invoke(varargsOf(env.get(os).get(remove),q))));
+      env.get(print).invoke(varargsOf(os_setlo,pcall$1.invoke(varargsOf(env.get(os).get(setlocal),C))));
+      env.get(print).invoke(varargsOf(os_exit,env.get(type$1).invoke(env.get(os).get(exit))));
+      return NONE;
+   }
+   static final LuaValue pcall = valueOf("pcall");
+   static final LuaValue type$1 = valueOf("type");
+   static final LuaValue print = valueOf("print");
+   static final LuaValue os = valueOf("os");
+   static final LuaValue os_clock = valueOf("os.clock()");
+   static final LuaValue clock = valueOf("clock");
+   static final LuaValue os_date_ = valueOf("os.date()");
+   static final LuaValue date = valueOf("date");
+   static final LuaValue os_difft = valueOf("os.difftime(123000, 21500)");
+   static final LuaValue difftime = valueOf("difftime");
+   static final LuaValue _123000 = valueOf(123000);
+   static final LuaValue _21250 = valueOf(21250);
+   static final LuaValue os_execu = valueOf("os.execute(\"bogus\")");
+   static final LuaValue execute = valueOf("execute");
+   static final LuaValue _ = valueOf("");
+   static final LuaValue os_geten = valueOf("os.getenv()");
+   static final LuaValue getenv = valueOf("getenv");
+   static final LuaValue os_geten$1 = valueOf("os.getenv(\"bogus.key\")");
+   static final LuaValue bogus_ke = valueOf("bogus.key");
+   static final LuaValue tmpname = valueOf("tmpname");
+   static final LuaValue os_tmpna = valueOf("os.tmpname()");
+   static final LuaValue io = valueOf("io");
+   static final LuaValue open = valueOf("open");
+   static final LuaValue w = valueOf("w");
+   static final LuaValue io_open = valueOf("io.open");
+   static final LuaValue write = valueOf("write");
+   static final LuaValue abcdef_1 = valueOf("abcdef 12345");
+   static final LuaValue close = valueOf("close");
+   static final LuaValue os_renam = valueOf("os.rename(p,q)");
+   static final LuaValue rename = valueOf("rename");
+   static final LuaValue os_remov = valueOf("os.remove(q)");
+   static final LuaValue remove = valueOf("remove");
+   static final LuaValue os_setlo = valueOf("os.setlocale(\"C\")");
+   static final LuaValue setlocal = valueOf("setlocale");
+   static final LuaValue C = valueOf("C");
+   static final LuaValue os_exit = valueOf("os.exit");
+   static final LuaValue exit = valueOf("exit");
+}
